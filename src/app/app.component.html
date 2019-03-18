@@ -62,3 +62,4 @@ content: <input type="text" (keyup.enter)="showValue(content)" />
   nothing to show
 </ng-template>
 
+<app-hello [customerName]="name" (send)="getEvent($event)"></app-hello>
