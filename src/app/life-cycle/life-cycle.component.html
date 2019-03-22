@@ -1,0 +1,47 @@
+<app-demo-life-cycle [data]="data">
+  <!-- content (要顯示的話，需搭配使用ng-content)-->
+  <!-- projection -->
+  <div class="someClass" #hahaContent>
+    <span>ng-content 的 select 對應到 content 的東西，有對到才顯示</span>
+    <h1>title for demo</h1>
+  </div>
+</app-demo-life-cycle>
+
+==================== something else ====================
+
+<app-demo-life-cycle [data]="1">
+  <!-- content (要顯示的話，需搭配使用ng-content)-->
+  <!-- projection -->
+  <div>
+    <h1>title for demo</h1>
+  </div>
+</app-demo-life-cycle>
+
+<hr>
+
+{{ data | json }}
+<input type="text" [(ngModel)]="data.name" #fuck/>
+<button (click)="assignData()">Assign Data</button>
+<hr>
+
+<button (click)="show = !show">show</button>
+<hr>
+
+<p>使用 ng-container 的話 html長的標籤不會多:</p>
+<p>ng-container</p>
+<ng-container *ngFor="let item of [1,2,3,4,5]">
+  text in container
+</ng-container>
+<p>ng-template</p>
+<ng-template>
+  text in template
+</ng-template>
+<hr>
+
+<p>按 show 切換 container / template</p>
+<ng-container *ngIf="show; else b">
+  text in container
+</ng-container>
+<ng-template #b>
+  text in template
+</ng-template>
